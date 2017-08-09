@@ -33,10 +33,7 @@
             echo "<td class='actions'>";
                 echo $this->Html->link( 'Edit', array('action' => 'uedit', $user['User']['id']) );
                  
-                echo $this->Form->postLink( 'Delete', array(
-                        'action' => 'udelete', 
-                        $user['User']['id']), array(
-                            'confirm'=>'Are you sure you want to delete that user?' ) );
+                echo $this->Form->postLink( 'Delete', array('controller' => 'users','action' => 'udelete', $user['User']['id']), array('confirm'=>'Are you sure you want to delete that user?' ) );
             echo "</td>";
         echo "</tr>";
     }

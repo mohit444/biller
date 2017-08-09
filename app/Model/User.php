@@ -11,5 +11,27 @@ class User extends AppModel{
             $this->data['User']['password']=$passwordHasher->hash($this->data['User']['password']);
         }
     }
+	
+	public $validate = array(
+        'name' => array(
+            'required' => array(
+                'rule' => 'notBlank',
+                'message' => 'A username is required'
+            )
+        ),
+        'password' => array(
+            'required' => array(
+                'rule' => 'notBlank',
+                'message' => 'A password is required'
+            )
+        ),
+        'role' => array(
+            'valid' => array(
+                'rule' => array('inList', array('admin', 'gen')),
+                'message' => 'Please enter a valid role',
+                'allowEmpty' => false
+            )
+        )
+    );
 }
 ?>

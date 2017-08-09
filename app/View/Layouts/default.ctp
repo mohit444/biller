@@ -24,11 +24,21 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
-			<?php echo $this->Html->link('Users', array('controller'=>'Users', 'action'=>'index') ); ?>
+			
+			<?php 
+				if( $this->Session->check('Auth.User') ){
+					
+					echo $this->Html->link('Users', array('controller'=>'Users', 'action'=>'index') ); 
+			?>
 			<?php echo ' | ' ?>
 			<?php echo $this->Html->link('Customers', array('controller'=>'customers', 'action'=>'index') ); ?>
 			<?php echo ' | ' ?>
 			<?php echo $this->Html->link('Products', array('controller'=>'products', 'action'=>'index') ); ?>
+			<?php 								
+					echo ' | ' ;
+					echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout') );
+				}
+			 ?>
 		</div>
 		<div id="content">
 			
