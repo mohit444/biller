@@ -23,7 +23,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'https://cakephp.org'); ?></h1>
+			<h1><?php echo $this->Html->link($cakeDescription, '//localhost/biller'); ?></h1>
 			
 			<?php 
 				if( $this->Session->check('Auth.User') ){
@@ -34,9 +34,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<?php echo $this->Html->link('Customers', array('controller'=>'customers', 'action'=>'index') ); ?>
 			<?php echo ' | ' ?>
 			<?php echo $this->Html->link('Products', array('controller'=>'products', 'action'=>'index') ); ?>
+			<?php echo ' | ' ?>
+			<?php echo $this->Html->link('Orders', array('controller'=>'orders', 'action'=>'index') ); ?>
+			<?php echo ' | ' ?>
+			<?php echo $this->Html->link('Invoices', array('controller'=>'bills', 'action'=>'index') ); ?>
 			<?php 								
 					echo ' | ' ;
 					echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout') );
+					echo $this->Session->read('Auth.User.name');
 				}
 			 ?>
 		</div>

@@ -1,28 +1,29 @@
-<h2>Users</h2>
+<h2>Products</h2>
  
 <!-- link to add new users page -->
 
     <?php echo $this->Html->link( '+ New Product', array( 'action' => 'padd' ) ); ?>
 
- 
-<table >
-    <!-- table heading -->
-    <tr style=''>
-        <th>ID</th>
-        <th>Title</th>
-        <th>PR code</th>
-		<th>Type</th>
-		<th>Price</th>
-		<th>created</th>
-		<th>Modified</th>
-        <th>Actions</th>
-    </tr>
+ <?php if(!empty($products) ) { ?>
+	<table >
+		<!-- table heading -->
+		<tr style=''>
+			<th>ID</th>
+			<th>Title</th>
+			<th>PR code</th>
+			<th>Type</th>
+			<th>Price</th>
+			<th>created</th>
+			<th>Modified</th>
+			<th>Actions</th>
+		</tr>
      
-<?php 
-    //loop to show all retrieved records
-    foreach( $products as $product ){
+	<?php 
+		//loop to show all retrieved records
+	
+		foreach( $products as $product ){
      
-        echo "<tr>";
+			echo "<tr>";
             echo "<td>{$product['Product']['id']}</td>";
             echo "<td>{$product['Product']['title']}</td>";
             echo "<td>{$product['Product']['prcode']}</td>";
@@ -37,8 +38,14 @@
                  
                 echo $this->Form->postLink( 'Delete', array('controller' => 'products','action' => 'pdelete', $product['Product']['id']), array('confirm'=>'Are you sure you want to delete that product?' ) );
             echo "</td>";
-        echo "</tr>";
-    }
+			echo "</tr>";
+		}
+	
+    
+	?>    
+	</table>
+<?php }
+	else{
+		echo "No Product found! Add first";
+	}
 ?>
-     
-</table>
