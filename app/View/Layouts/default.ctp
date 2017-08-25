@@ -1,19 +1,20 @@
 <?php
 
-$cakeDescription = __d('cake_dev', 'Biller');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php echo $cakeDescription;?>
+		Biller
 	</title>
+	
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
+		#echo $this->Html->meta('favicon.ico','/img/title_icon.ico',array('type'=>'icon'));
+		echo $this->Html->css(array('bootstrap.min','custom'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -22,47 +23,20 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, '//localhost/biller'); ?></h1>
-			
-			<?php 
-				if( $this->Session->check('Auth.User') ){
-					
-					echo $this->Html->link('Users', array('controller'=>'Users', 'action'=>'index') ); 
-			?>
-			<?php echo ' | ' ?>
-			<?php echo $this->Html->link('Customers', array('controller'=>'customers', 'action'=>'index') ); ?>
-			<?php echo ' | ' ?>
-			<?php echo $this->Html->link('Products', array('controller'=>'products', 'action'=>'index') ); ?>
-			<?php echo ' | ' ?>
-			<?php echo $this->Html->link('Orders', array('controller'=>'orders', 'action'=>'index') ); ?>
-			<?php echo ' | ' ?>
-			<?php echo $this->Html->link('Invoices', array('controller'=>'bills', 'action'=>'index') ); ?>
-			<?php 								
-					echo ' | ' ;
-					echo $this->Html->link('Logout', array('controller'=>'users', 'action'=>'logout') );
-					echo $this->Session->read('Auth.User.name');
-				}
-			 ?>
-		</div>
+		<?php echo $this->element('header');?>
+		<?php echo $this->element('nav');?>
+		
 		<div id="content">
 			
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'https://cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
-			<p>
-				<?php echo $cakeVersion; ?>
-			</p>
-		</div>
+		
+		<?php echo $this->element('footer');?>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
+	<!--?php echo $this->element('sql_dump'); ? -->
+	
 	<?php echo $this->Html->script('jquery.min'); ?>
+	<?php echo $this->Html->script('bootstrap.min'); ?>
 </body>
 </html>
