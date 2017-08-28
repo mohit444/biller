@@ -8,12 +8,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		Biller
+		BILLER
 	</title>
 	
 	<?php
-		echo $this->Html->meta('icon');
-		#echo $this->Html->meta('favicon.ico','/img/title_icon.ico',array('type'=>'icon'));
+		#echo $this->Html->meta('icon');
+		echo $this->Html->meta('favicon.ico','img/titleicon.png',array('type'=>'icon'));
 		echo $this->Html->css(array('bootstrap.min','custom'));
 
 		echo $this->fetch('meta');

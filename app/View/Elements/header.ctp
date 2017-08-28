@@ -1,4 +1,5 @@
-<div class="container-fluid">
-<?php $cakeDescription = __d('cake_dev', 'Biller'); ?>
-<h1><?php echo $this->Html->link($cakeDescription, '//localhost/biller'); ?></h1>
+<div class="container">
+    <div class="headernav">
+        <?php echo $this->Html->link("BILLER", '//localhost/biller',array('class'=>'headtitle')); ?>
+    </div>
 </div>
