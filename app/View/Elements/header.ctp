@@ -24,7 +24,7 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><?php echo $this->Html->link('<span class="fa fa-user"> '.$this->Session->read('Auth.User.name'), array('controller'=>'users', 'action'=>'logout'), array('escape'=>false) );?></li>
+          <li><?php echo $this->Html->link('<span class="fa fa-user"> '.$this->Session->read('Auth.User.name'), array(), array('escape'=>false) );?></li>
 
           <li><?php echo $this->Html->link('<span class="fa fa-sign-out"> Logout', array('controller'=>'users', 'action'=>'logout'), array('escape'=>false) );?></li>
         </ul>

@@ -30,6 +30,9 @@ class UsersController extends AppController{
 	public function index(){
 		$users = $this->User->find('all');
 		$this->set('users',$users);
+		#echo "<pre>";
+		#print_r ($users);
+		#echo "</pre>";
 	}
 	
 	public function uadd(){
