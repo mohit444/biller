@@ -53,7 +53,7 @@ class UsersController extends AppController{
 		if($this->request->is(array('post','put'))){
 			$this->User->id=$id;
 			$this->User->save($this->request->data);      
-			$this->Session->setFlash('User has been updated.');
+			#$this->Session->setFlash('User has been updated.');
 			$this->redirect("index");
 		}
 		else{			
