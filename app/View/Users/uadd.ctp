@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-lg-6 col-md-6 col-sm-4 col-xm-4 col-lg-offset-3 col-md-offset-3 col-sm-offset-4 col-xm-offset-4">
-        <div class="panel panel-info">
+        <div class="panel panel-default">
             <div class="panel-heading">Add user [
                 
                 <?php echo $this->Html->link(__('<i class="fa fa-eye"></i> All Users'),array(
@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <?php echo $this->Form->input('role', array('class'=>'form-control','placeholder'=>'admin or gen')); ?>
+                        <?php echo $this->Form->input('role', array('class'=>'form-control','options'=>array('gen'=>'GEN','admin'=>'Admin'),'empty'=>'Select admin or gen')); ?>
                     </div>
                 </div>
                 <div class="form-group">

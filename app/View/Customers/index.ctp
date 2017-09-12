@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="panel panel-info">
+    <div class="panel panel-default">
         <div class="panel-heading">Customers [
             
             <?php echo $this->Html->link(__('<i class="fa fa-plus"></i> Add Customer'),array(
