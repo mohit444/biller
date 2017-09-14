@@ -39,51 +39,48 @@
             </div> 
             <?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label class="control-label">Prd Code</label>
-                            <?php echo $this->Form->input('ordprcode', array('class'=>'form-control')); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label">Title</label>
-                            <?php echo $this->Form->input('ordtitle', array('class'=>'form-control')); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label class="control-label">Unit Price</label>
-                            <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control')); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-1">
-                        <div class="form-group">
-                            <label class="control-label">Qty</label>
-                            <?php echo $this->Form->input('ordquantity', array('class'=>'form-control')); ?>
-                        </div>
-                    </div>
-                    <div class="col-md-1">
-                        <div class="form-group">
-                            <label class="control-label">Total</label>
-                            <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control')); ?>
-                        </div>
-                    </div>  
-
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label class="control-label">Action</label>
-                            <div class="row">
-                                <div class="col-md-4">
-                                <?php echo $this->Form->submit('Delete',array('class'=> 'btn btn-danger')); ?>
-                                </div>
-                                <div class="col-md-6">
-                                <?php echo $this->Form->submit('Add',array('class'=> 'btn btn-primary')); ?>
+                <div class="divinputsline">
+                    <div class="inputsline">
+                        <div class="col-md-12 ">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Prd Code</label>
+                                    <?php echo $this->Form->input('ordprcode', array('class'=>'form-control','id'=>'forinputs')); ?>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Title</label>
+                                    <?php echo $this->Form->input('ordtitle', array('class'=>'form-control','id'=>'forinputs')); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Unit Price</label>
+                                    <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control','id'=>'forinputs')); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="control-label">Qty</label>
+                                    <?php echo $this->Form->input('ordquantity', array('class'=>'form-control','id'=>'forinputs')); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Total</label>
+                                    <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control','id'=>'forinputs')); ?>
+                                </div>
+                            </div>  
+
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="control-label">Action</label>
+                                    <?php echo $this->Form->submit('Delete',array('class'=> 'btn btn-danger','id'=>'forinputs')); ?>                            
+                                </div>
+                            </div> 
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col-md-10 col-md-offset-1">                    
                     <?php echo $this->Form->create('Bill',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
@@ -128,10 +125,6 @@
                 </div>
             </div> <!-- ---- END ROWS -------- -->
             
-                
-                    
-                
-            
         </div>
         <div class="panel-footer clearfix">
             <div class="pull-right">
@@ -142,13 +135,29 @@
     </div>
 </div>
 
+
 <script>
 $(document).ready(function(){
+    $(document).on('change','.inputsline input',function(){
+        var parentdiv = $(this).closest("div.inputsline");
+         emptyinputs = parentdiv.find("input").filter(function(){
+            return !this.value;
+        });
+        if(emptyinputs.length == 0){
+            newgroup = parentdiv.clone().appendTo(".divinputsline");
+            newgroup.find("input").each(function(){
+                $(this).val("");
+            });
+        }
+    });
+    
     $('#datePicker').datepicker({
         format:'dd/mm/yyyy',
         todayHighlight:true,
         autoclose:true
     });
     $('#datePicker').datepicker("setDate", "0");
+
+    
 });
 </script>

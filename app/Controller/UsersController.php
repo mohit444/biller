@@ -14,7 +14,7 @@ class UsersController extends AppController{
         if($this->request->is('post')){
             if($this->Auth->login() ){
              
-                $this->redirect(array('action'=>'index'));
+                $this->redirect(array('controller'=>'orders','action'=>'index'));
             }
             else{
                 $this->Session->setFlash('Invalid User');
