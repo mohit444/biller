@@ -7,13 +7,13 @@
 
 <div class="container">
     <div class="panel panel-default">    
-        <div class="panel-heading">Invoice</div>
+        <div class="panel-heading"><i class="fa fa-plus fa-fw"></i>Add Order</div>
         <div class="panel-body">            
             <?php echo $this->Form->create('Bill',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="col-md-3  control-label">To</label>
+                        <label class="col-md-3  control-label">Customer</label>
                         <div class="col-md-9">
                             <?php echo $this->Form->input('Customer.Customer', array('class'=>'form-control','size'=>4)); ?>
                         </div>
@@ -37,108 +37,83 @@
                     </div>
                 </div>
             </div> 
-            <?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
-            <div class="row">
-                <div class="divinputsline">
-                    <div class="inputsline">
-                        <div class="col-md-12 ">
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="control-label">Prd Code</label>
-                                    <?php echo $this->Form->input('ordprcode', array('class'=>'form-control','id'=>'forinputs')); ?>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="control-label">Title</label>
-                                    <?php echo $this->Form->input('ordtitle', array('class'=>'form-control','id'=>'forinputs')); ?>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="control-label">Unit Price</label>
-                                    <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control','id'=>'forinputs')); ?>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <label class="control-label">Qty</label>
-                                    <?php echo $this->Form->input('ordquantity', array('class'=>'form-control','id'=>'forinputs')); ?>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="control-label">Total</label>
-                                    <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control','id'=>'forinputs')); ?>
-                                </div>
-                            </div>  
 
-                            <div class="col-md-1">
-                                <div class="form-group">
-                                    <label class="control-label">Action</label>
-                                    <?php echo $this->Form->submit('Delete',array('class'=> 'btn btn-danger','id'=>'forinputs')); ?>                            
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-10 col-md-offset-1">                    
-                    <?php echo $this->Form->create('Bill',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
-                    <div class="pull-right">                    
-                        <div class="form-group">
-                            <label class="col-md-5 control-label">SUM</label>
-                            <div class="col-md-7">
-                                <?php echo $this->Form->input('ordfulltotal', array('class'=>'form-control')); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-5 control-label">CGST</label>
-                            <div class="col-md-7">
-                                <?php echo $this->Form->input('cgst', array('class'=>'form-control','value'=>2.5)); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-5 control-label">SGST</label>
-                            <div class="col-md-7">
-                                <?php echo $this->Form->input('sgst', array('class'=>'form-control','value'=>2.5)); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-5 control-label">Grand Total</label>
-                            <div class="col-md-7">
-                                <?php echo $this->Form->input('grandtotal', array('class'=>'form-control')); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-5 control-label">Pay</label>
-                            <div class="col-md-7">
-                                <?php echo $this->Form->input('pay', array('class'=>'form-control')); ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-5 control-label">Balance</label>
-                            <div class="col-md-7">
-                                <?php echo $this->Form->input('bal', array('class'=>'form-control')); ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- ---- END ROWS -------- -->
+
+
+
+
+
+
+            <?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
+            <table class="table" id="productTable">
+                <thead>
+                    <tr>			  			
+                        <th style="width:15%;">Pr code</th>
+                        <th style="width:35%;">Title</th>
+                        <th style="width:15%;">Price</th>
+                        <th style="width:10%;">Quantity</th>			  			
+                        <th style="width:15%;">Total</th>			  			
+                        <th style="width:10%;"></th>
+                    </tr>
+                </thead>
+                <tbody>
+		
+                    <tr >			  				
+                        <td style="padding-left:5px;">
+                            
+
+                            <?php echo $this->Form->input('ordprcode', array('class'=>'form-control','id'=>'forinputs')); ?>
+                            
+                        </td>
+                        <td style="padding-left:5px;">			  					
+                                
+                            <?php echo $this->Form->input('ordtitle', array('class'=>'form-control')); ?>
+                        </td>
+                        <td style="padding-left:5px;">
+                            
+                            <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control','id'=>'forinputs')); ?>
+                            
+                        </td>
+                        <td style="padding-left:5px;">	
+                                                        
+                            <?php echo $this->Form->input('ordquantity', array('class'=>'form-control','id'=>'forinputs')); ?>	
+                                                    
+                        </td>
+                        <td style="padding-left:5px;">			  					
+                            <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control','id'=>'forinputs')); ?>	  					
+                        </td>
+                        <td>
+                            <button class="btn btn-default removeProductRowBtn" type="button" id="removeProductRowBtn" onclick=""><i class="glyphicon glyphicon-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>			  	
+            </table>
             
         </div>
         <div class="panel-footer clearfix">
+            <div class="pull-left">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                        <?php echo $this->Form->submit('Add Row',array('class'=> 'btn btn-default')); ?>
+                        </div>
+                        <div class="col-md-6">
+                        <?php echo $this->Form->submit('Reset',array('class'=> 'btn btn-default')); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="pull-right">
-                <?php echo $this->Form->submit('Done',array('class'=> 'btn btn-default')); ?>
+                <?php echo $this->Form->submit('Save',array('class'=> 'btn btn-default')); ?>
                 <?php echo $this->Form->end();?>
             </div>
         </div>
     </div>
 </div>
 
-
 <script>
 $(document).ready(function(){
-    $(document).on('change','.inputsline input',function(){
+    /*$(document).on('change','.inputsline input',function(){
         var parentdiv = $(this).closest("div.inputsline");
          emptyinputs = parentdiv.find("input").filter(function(){
             return !this.value;
@@ -149,7 +124,7 @@ $(document).ready(function(){
                 $(this).val("");
             });
         }
-    });
+    });*/
     
     $('#datePicker').datepicker({
         format:'dd/mm/yyyy',
