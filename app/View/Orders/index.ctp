@@ -1,4 +1,5 @@
 <?php echo $this->Html->script('jquery.min'); ?>
+
 <!-- Include Bootstrap Datepicker -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
@@ -40,7 +41,7 @@
 
 
             <?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
-            <table class="table" id="">
+            <table class="table" id="orderrowtable">
                 <thead>
                     <tr>			  			
                         <th style="width:15%;">Pr code</th>
@@ -51,6 +52,7 @@
                         <th style="width:10%;"></th>
                     </tr>
                 </thead>
+                <?php $arraynum =0;?>
                 <tbody>
 		
                     <tr>			  				
@@ -84,31 +86,31 @@
             <div class="row top-margin">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Sub Total</label>
+                        <label class="col-md-3  control-label">Sub Total</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('subamount', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">CGST</label>
+                        <label class="col-md-3  control-label">CGST</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('cgst', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">SGST</label>
+                        <label class="col-md-3  control-label">SGST</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('sgst', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Total Amount</label>
+                        <label class="col-md-3  control-label">Total Amount</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('totalamount', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Discount</label>
+                        <label class="col-md-3  control-label">Discount</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('discount', array('class'=>'form-control')); ?>
                         </div>
@@ -117,31 +119,31 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Grand Total</label>
+                        <label class="col-md-3  control-label">Grand Total</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('grandtotal', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Paid Amount</label>
+                        <label class="col-md-3  control-label">Paid Amount</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('paidamount', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Due</label>
+                        <label class="col-md-3  control-label">Due</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('dueamount', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Payment Mode</label>
+                        <label class="col-md-3  control-label">Payment Mode</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('paymentmode', array('class'=>'form-control')); ?>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4  control-label">Payment Status</label>
+                        <label class="col-md-3  control-label">Payment Status</label>
                         <div class="col-md-8">
                             <?php echo $this->Form->input('paymentstatus', array('class'=>'form-control')); ?>
                         </div>
@@ -152,10 +154,10 @@
 
         <div class="panel-footer clearfix">
             <div class="pull-left">
-                <div class="col-md-12">
+                <div class="row">
                     <div class="form-group">
                         <div class="col-md-6">
-                        <?php echo $this->Form->button('Add Row',array('class'=> 'btn btn-default','type'=>'button')); ?>
+                        <?php echo $this->Form->button('Add Row',array('onclick'=>'addRow()','id'=>'addrowbtn','class'=> 'btn btn-default','type'=>'button')); ?>
                         </div>
                         <div class="col-md-6">
                         <?php echo $this->Form->button('Reset',array('class'=> 'btn btn-default','type'=>'button')); ?>

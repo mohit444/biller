@@ -38,6 +38,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<?php echo $this->Html->script("jquery.dataTables.min.js"); ?>
 	<?php echo $this->Html->script("dataTables.responsive");?>
 	<?php echo $this->Html->script("dataTables.bootstrap.min.js");?>
+	<?php echo $this->Html->script('order');?>
 	<script>
 	$(document).ready(function(){
 		$('#dataTables').DataTable({
