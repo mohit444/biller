@@ -41,7 +41,7 @@
 
 
             <?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
-            <table class="table" id="orderrowtable">
+            <table class="table" id="orderTable">
                 <thead>
                     <tr>			  			
                         <th style="width:15%;">Pr code</th>
@@ -52,10 +52,12 @@
                         <th style="width:10%;"></th>
                     </tr>
                 </thead>
-                <?php $arraynum =0;?>
+                
                 <tbody>
-		
-                    <tr>			  				
+                    <?php $arrayNumber =0;?>
+                    <?php for($rowid=1;$rowid<3;$rowid++) { ?>
+
+                    <tr id="row<?php echo $rowid;?>" class="<?php echo $arrayNumber;?>">			  				
                         <td style="padding-left:5px;">                    
                             <?php echo $this->Form->input('ordprcode', array('class'=>'form-control')); ?>                            
                         </td>
@@ -77,10 +79,11 @@
                         </td>
 
                         <td>
-                            <?php echo $this->Form->button('<i class="fa fa-trash"></i>',array('class'=>'btn btn default','type'=>'button'));?>
+                            <?php echo $this->Form->button('<i class="fa fa-trash"></i>',array('onclick'=>'removeOrderRow('. $rowid.')','class'=>'btn btn default removeOrderRowBtn','id'=>'removeOrderRowBtn','type'=>'button'));?>
                             <!--button class="btn btn-default removeProductRowBtn" type="button" id="removeProductRowBtn" onclick=""><i class="glyphicon glyphicon-trash"></i></button-->
                         </td>
                     </tr>
+                    <?php } ?> <!---- End For Loop ------>
                 </tbody>			  	
             </table>   
             <div class="row top-margin">
@@ -157,7 +160,7 @@
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-6">
-                        <?php echo $this->Form->button('Add Row',array('onclick'=>'addRow()','id'=>'addrowbtn','class'=> 'btn btn-default','type'=>'button')); ?>
+                        <?php echo $this->Form->button('Add Row',array('onclick'=>'addRow()','id'=>'addRowBtn','class'=> 'btn btn-default','type'=>'button')); ?>
                         </div>
                         <div class="col-md-6">
                         <?php echo $this->Form->button('Reset',array('class'=> 'btn btn-default','type'=>'button')); ?>

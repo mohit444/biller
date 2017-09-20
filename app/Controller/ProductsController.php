@@ -47,6 +47,11 @@ class ProductsController extends AppController{
         }
 		$this->redirect("index");
 	}
+
+	public function fetchproductdata(){
+		$data = $this->Product->find('list',array('fields'=>array('id','prcode')));
+		echo json_encode($data);
+	}
 	
 }
 ?>
