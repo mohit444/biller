@@ -18,7 +18,33 @@ function addRow(){
         count = 1;
         arrayNumber = 0;
     }
-}
+    
+    $('#addRowBtn').button('reset');
+    var tr = '<tr id="row'+count+'" class="'+arrayNumber+'">'+
+                '<td style="padding-left:5px;">' +                
+                    "<?php echo $this->Form->input('ordprcode', array('class'=>'form-control')); ?>"+          
+                '</td>'+
+                '<td style="padding-left:5px;">'+
+                    '<?php echo $this->Form->input("ordtitle", array("class"=>"form-control")); ?>'+
+                '</td>'+
+                '<td style="padding-left:5px;">'  +                       
+                     '<?php echo $this->Form->input("ordunitprice", array("class"=>"form-control"));?>' +
+                                            
+                '</td>'+
+                '<td style="padding-left:5px;">'+	                                                        
+                    '<?php echo $this->Form->input("ordquantity", array("class"=>"form-control")); ?>'+	                                                    
+                '</td>'+
+                '<td style="padding-left:5px;">'+			  					
+                    '<?php echo $this->Form->input("ordrowtotal", array("class"=>"form-control")); ?>'+	  					
+                '</td>'+
+                
+            '</tr>';
+    if(tableLength > 0) {							
+        $("#orderTable tbody tr:last").after(tr);
+    } else {				
+        $("#orderTable tbody").append(tr);
+    }
+} // addRow
 
 function removeOrderRow(row = null) {
 	if(row) {
