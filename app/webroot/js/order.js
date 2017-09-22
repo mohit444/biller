@@ -20,8 +20,9 @@ function addRow(){
     }
     
     $('#addRowBtn').button('reset');
+    "<?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>";
     var tr = '<tr id="row'+count+'" class="'+arrayNumber+'">'+
-                '<td style="padding-left:5px;">' +                
+                '<td style="padding-left:5px;">'+               
                     "<?php echo $this->Form->input('ordprcode', array('class'=>'form-control')); ?>"+          
                 '</td>'+
                 '<td style="padding-left:5px;">'+
@@ -32,13 +33,15 @@ function addRow(){
                                             
                 '</td>'+
                 '<td style="padding-left:5px;">'+	                                                        
-                    '<?php echo $this->Form->input("ordquantity", array("class"=>"form-control")); ?>'+	                                                    
+                    '<?php echo $this->Form->input("ordquantity", array("class"=>"form-control")); ?>'+	  
+                    '<input type="number" class="form-control" />'+                                                  
                 '</td>'+
                 '<td style="padding-left:5px;">'+			  					
                     '<?php echo $this->Form->input("ordrowtotal", array("class"=>"form-control")); ?>'+	  					
                 '</td>'+
                 
-            '</tr>';
+    '</tr>';
+    "<?php echo $this->Form->end();?>";
     if(tableLength > 0) {							
         $("#orderTable tbody tr:last").after(tr);
     } else {				

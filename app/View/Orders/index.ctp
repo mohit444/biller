@@ -38,9 +38,7 @@
                     </div>
                 </div>
             </div> 
-
-
-            <?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>
+            
             <table class="table" id="orderTable">
                 <thead>
                     <tr>			  			
@@ -54,6 +52,7 @@
                 </thead>
                 
                 <tbody>
+                    <?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>    
                     <?php $arrayNumber =0;?>
                     <?php for($rowid=1;$rowid<3;$rowid++) { ?>
 
