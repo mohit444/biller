@@ -20,28 +20,32 @@ function addRow(){
     }
     
     $('#addRowBtn').button('reset');
-    "<?php echo $this->Form->create('Order',array('class'=> 'form-horizontal', 'inputDefaults'=>array('label'=>false)));?>";
+
     var tr = '<tr id="row'+count+'" class="'+arrayNumber+'">'+
                 '<td style="padding-left:5px;">'+               
-                    "<?php echo $this->Form->input('ordprcode', array('class'=>'form-control')); ?>"+          
+                    //"<?php echo $this->Form->input('ordprcode', array('class'=>'form-control'),array('escape'=>false)); ?>"+     
+                    '<input type="text" class="form-control"/>'+
                 '</td>'+
                 '<td style="padding-left:5px;">'+
-                    '<?php echo $this->Form->input("ordtitle", array("class"=>"form-control")); ?>'+
+                    //'<?php echo $this->Form->input("ordtitle", array("class"=>"form-control")); ?>'+
+                    '<input type="text" class="form-control"/>'+
                 '</td>'+
                 '<td style="padding-left:5px;">'  +                       
-                     '<?php echo $this->Form->input("ordunitprice", array("class"=>"form-control"));?>' +
-                                            
+                     //'<?php echo $this->Form->input("ordunitprice", array("class"=>"form-control"));?>' +
+                     '<input type="number" class="form-control" />'+                       
                 '</td>'+
                 '<td style="padding-left:5px;">'+	                                                        
-                    '<?php echo $this->Form->input("ordquantity", array("class"=>"form-control")); ?>'+	  
+                    //'<?php echo $this->Form->input("ordquantity", array("class"=>"form-control")); ?>'+	  
                     '<input type="number" class="form-control" />'+                                                  
                 '</td>'+
                 '<td style="padding-left:5px;">'+			  					
-                    '<?php echo $this->Form->input("ordrowtotal", array("class"=>"form-control")); ?>'+	  					
+                    //'<?php echo $this->Form->input("ordrowtotal", array("class"=>"form-control")); ?>'+
+                    '<input type="number" class="form-control" />'+
                 '</td>'+
-                
-    '</tr>';
-    "<?php echo $this->Form->end();?>";
+                '<td>'+
+                    '<button class="btn btn-default removeOrderRowBtn" id="removeOrderRowBtn" type="button" onclick="removeOrderRow('+count+')"><i class="fa fa-trash"></i></button>'+
+                '</td>'+                
+    '</tr>';    
     if(tableLength > 0) {							
         $("#orderTable tbody tr:last").after(tr);
     } else {				

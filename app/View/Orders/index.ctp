@@ -58,23 +58,23 @@
 
                     <tr id="row<?php echo $rowid;?>" class="<?php echo $arrayNumber;?>">			  				
                         <td style="padding-left:5px;">                    
-                            <?php echo $this->Form->input('ordprcode', array('class'=>'form-control')); ?>                            
+                            <?php echo $this->Form->input('ordprcode', array('class'=>'form-control','id'=>'inp')); ?>                            
                         </td>
 
                         <td style="padding-left:5px;">			  					                                
-                            <?php echo $this->Form->input('ordtitle', array('class'=>'form-control')); ?>
+                            <?php echo $this->Form->input('ordtitle', array('class'=>'form-control','id'=>'inp')); ?>
                         </td>
 
                         <td style="padding-left:5px;">                            
-                            <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control')); ?>                            
+                            <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control','id'=>'inp')); ?>                            
                         </td>
 
                         <td style="padding-left:5px;">	                                                        
-                            <?php echo $this->Form->input('ordquantity', array('class'=>'form-control')); ?>	                                                    
+                            <?php echo $this->Form->input('ordquantity', array('class'=>'form-control','id'=>'inp')); ?>	                                                    
                         </td>
 
                         <td style="padding-left:5px;">			  					
-                            <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control')); ?>	  					
+                            <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control','id'=>'inp')); ?>	  					
                         </td>
 
                         <td>
@@ -82,7 +82,9 @@
                             <!--button class="btn btn-default removeProductRowBtn" type="button" id="removeProductRowBtn" onclick=""><i class="glyphicon glyphicon-trash"></i></button-->
                         </td>
                     </tr>
-                    <?php } ?> <!---- End For Loop ------>
+                    <?php 
+                    $arrayNumber++ ;
+                    } ?> <!---- End For Loop ------>
                 </tbody>			  	
             </table>   
             <div class="row top-margin">
@@ -90,25 +92,25 @@
                     <div class="form-group">
                         <label class="col-md-3  control-label">Sub Total</label>
                         <div class="col-md-8">
-                            <?php echo $this->Form->input('subamount', array('class'=>'form-control')); ?>
+                            <?php echo $this->Form->input('subamount', array('class'=>'form-control','id'=>'inp')); ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3  control-label">CGST</label>
                         <div class="col-md-8">
-                            <?php echo $this->Form->input('cgst', array('class'=>'form-control')); ?>
+                            <?php echo $this->Form->input('cgst', array('class'=>'form-control','id'=>'inp')); ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3  control-label">SGST</label>
                         <div class="col-md-8">
-                            <?php echo $this->Form->input('sgst', array('class'=>'form-control')); ?>
+                            <?php echo $this->Form->input('sgst', array('class'=>'form-control','id'=>'inp')); ?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3  control-label">Total Amount</label>
                         <div class="col-md-8">
-                            <?php echo $this->Form->input('totalamount', array('class'=>'form-control')); ?>
+                            <?php echo $this->Form->input('totalamount', array('class'=>'form-control','id'=>'inp')); ?>
                         </div>
                     </div>
                     <div class="form-group">
