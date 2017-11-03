@@ -19,12 +19,12 @@ function addRow(){
         arrayNumber = 0;
     }
     
+    
     $('#addRowBtn').button('reset');
-
     var tr = '<tr id="row'+count+'" class="'+arrayNumber+'">'+
                 '<td style="padding-left:5px;">'+               
                     //"<?php echo $this->Form->input('ordprcode', array('class'=>'form-control'),array('escape'=>false)); ?>"+     
-                    '<input type="text" class="form-control"/>'+
+                    '<input type="text" name="typeahead" class="form-control" options= $prcodelist, empty ="--Select--" />'+
                 '</td>'+
                 '<td style="padding-left:5px;">'+
                     //'<?php echo $this->Form->input("ordtitle", array("class"=>"form-control")); ?>'+

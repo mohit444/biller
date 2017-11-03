@@ -24,7 +24,7 @@
                     <div class="form-group" >
                         <label class="col-md-3 control-label">Bill No.</label>                        
                         <div class="col-md-9">
-                            <?php echo $this->Form->input('id', array('class'=>'form-control')); ?>                            
+                            <?php echo $this->Form->input('Bill.id', array('class'=>'form-control')); ?>                            
                         </div> 
                     </div>
                     <div class="form-group" >                        
@@ -58,23 +58,23 @@
 
                     <tr id="row<?php echo $rowid;?>" class="<?php echo $arrayNumber;?>">			  				
                         <td style="padding-left:5px;">                    
-                            <?php echo $this->Form->input('ordprcode', array('class'=>'form-control','id'=>'inp')); ?>                            
+                            <?php echo $this->Form->input('ordprcode', array('options'=>$prcodelist,'empty'=>'--Select code--','class'=>'form-control ','id'=>"prcode")); ?>                            
                         </td>
 
                         <td style="padding-left:5px;">			  					                                
-                            <?php echo $this->Form->input('ordtitle', array('class'=>'form-control','id'=>'inp')); ?>
+                            <?php echo $this->Form->input('ordtitle', array('options'=>$titlelist,'empty'=>'--Select Title--','class'=>'form-control')); ?>
                         </td>
 
                         <td style="padding-left:5px;">                            
-                            <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control','id'=>'inp')); ?>                            
+                            <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control','disabled'=>"true")); ?>                            
                         </td>
 
                         <td style="padding-left:5px;">	                                                        
-                            <?php echo $this->Form->input('ordquantity', array('class'=>'form-control','id'=>'inp')); ?>	                                                    
+                            <?php echo $this->Form->input('ordquantity', array('class'=>'form-control')); ?>	                                                    
                         </td>
 
                         <td style="padding-left:5px;">			  					
-                            <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control','id'=>'inp')); ?>	  					
+                            <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control','disabled'=>"true")); ?>	  					
                         </td>
 
                         <td>
@@ -187,6 +187,21 @@ $(document).ready(function(){
     });
     $('#datePicker').datepicker("setDate", "0");
 
-    
+    /*var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+
+    $( "#prcode" ).keyup(function() {
+        $key = $(this).val().trim().toLowerCase();
+        delay(function(){
+            alert( $key );
+        },1000);
+        
+    });
+    */
 });
 </script>
