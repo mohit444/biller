@@ -18,6 +18,12 @@ class OrdersController extends AppController{
 		$this->set('titlelist',$titlelist);
 	}
 
+	public function getproductdata(){
+		$id = $_POST['titleid'];
+		$data = $this->Product->find('all',array('conditions'=>array('Product.id'=>$id)));
+		echo json_encode($data);
+	}
+
 
 }
 ?>

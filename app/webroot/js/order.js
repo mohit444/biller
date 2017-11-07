@@ -61,3 +61,38 @@ function removeOrderRow(row = null) {
 		alert('error! Refresh the page again');
 	}
 }
+
+//////// GET PRODUCT DATA (Select On Product Data) ////////////////
+
+function getProductData(row = null){
+    if(row){
+        alert(row);
+        var titleid = $('#titleName'+row).val();
+        alert('ti'+titleid);
+        if(titleid == ''){
+            $('#rate'+row).val("");
+            $('#quanti'+row).val("");
+            $('#rowtotal'+row).val("");
+        }
+        else{
+            
+            $.ajax({
+                url: "/orders/getproductdata",
+                type: "post",
+                data: {titleid : titleid},
+                dataType:"json",
+                success:function(response){
+                    //alert(response.price);
+                    $('#rate'+row).val(response.price);
+                    $('#quanti'+row).val(1);
+                }
+            });
+        }
+            
+        
+    }
+    else{
+        alert('No row found ! Please refresh the page.');
+    }
+  
+}

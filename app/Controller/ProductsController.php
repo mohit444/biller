@@ -1,7 +1,7 @@
 <?php
 class ProductsController extends AppController{
 	
-	public $components = array('Session');
+	public $components = array('Session','RequestHandler');
 	
 	public function index(){
 		$products = $this->Product->find('all');
@@ -48,10 +48,6 @@ class ProductsController extends AppController{
 		$this->redirect("index");
 	}
 
-	public function fetchproductdata(){
-		$array = $this->Product->find('all');		
-		echo json_encode($array);
-	}
 	
 }
 ?>

@@ -1,5 +1,5 @@
 <?php echo $this->Html->script('jquery.min'); ?>
-
+<?php echo $this->Html->script('order'); ?>
 <!-- Include Bootstrap Datepicker -->
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
@@ -62,19 +62,19 @@
                         </td>
 
                         <td style="padding-left:5px;">			  					                                
-                            <?php echo $this->Form->input('ordtitle', array('options'=>$titlelist,'empty'=>'--Select Title--','class'=>'form-control')); ?>
+                            <?php echo $this->Form->input('ordtitle', array('id'=>'titleName'.$rowid,'onchange'=>"getProductData($rowid);",'options'=>$titlelist,'empty'=>'--Select Title--','class'=>'form-control')); ?>
                         </td>
 
                         <td style="padding-left:5px;">                            
-                            <?php echo $this->Form->input('ordunitprice', array('class'=>'form-control','disabled'=>"true")); ?>                            
+                            <?php echo $this->Form->input('ordunitprice', array('id'=>'#rate'.$rowid,'class'=>'form-control','disabled'=>"true")); ?>                            
                         </td>
 
                         <td style="padding-left:5px;">	                                                        
-                            <?php echo $this->Form->input('ordquantity', array('class'=>'form-control')); ?>	                                                    
+                            <?php echo $this->Form->input('ordquantity', array('id'=>'#quanti'.$rowid,'class'=>'form-control')); ?>	                                                    
                         </td>
 
                         <td style="padding-left:5px;">			  					
-                            <?php echo $this->Form->input('ordrowtotal', array('class'=>'form-control','disabled'=>"true")); ?>	  					
+                            <?php echo $this->Form->input('ordrowtotal', array('id'=>'#rowtotal'.$rowid,'class'=>'form-control','disabled'=>"true")); ?>	  					
                         </td>
 
                         <td>
